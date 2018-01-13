@@ -9,7 +9,7 @@ int filePlay(FILE * fp)
     int count = 0;
     while(fgets(sp,size,fp) != NULL)
     {
-        printf("%s\n",sp);
+        printf("%s",sp);
         count++;
     }
     return count;
@@ -20,7 +20,8 @@ int main(int argsv, char **args)
     if(argsv > 0)
     {
         FILE *fp=fopen(args[1],"r");
-        filePlay(fp);
+        int numLines = filePlay(fp);
+        printf("the number of lines is: %d",numLines);
     }
     return 0;
 }
