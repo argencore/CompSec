@@ -5,7 +5,7 @@ int filePlay(FILE fp)
 {
     char sp[107];
     int count = 0;
-    while(sp = getline(sp,107,fp) != NULL)
+    while(getline(&sp,107,fp) != NULL)
     {
         printf("%s\n",sp);
         count++;
