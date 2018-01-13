@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int filePlay(FILE fp)
+int filePlay(FILE * fp)
 {
-    char sp[107];
+    char *sp;
+    int size = 107;
+    sp = (char *)malloc(size * sizeof(char));
     int count = 0;
-    while(getline(&sp,107,fp) != NULL)
+    while(fgets(sp,size,fp) != NULL)
     {
         printf("%s\n",sp);
         count++;
@@ -14,10 +16,11 @@ int filePlay(FILE fp)
 }
 
 int main(int argsv, char **args)
-{
+{   
     if(argsv > 0)
     {
-        filePlay(args[1]);
+        FILE *fp=fopen(args[1],"r");
+        filePlay(fp);
     }
     return 0;
 }
