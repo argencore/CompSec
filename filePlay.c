@@ -21,7 +21,7 @@ int main(int argsv, char **args)
     {
         FILE *fp=fopen(args[1],"r");
         int numLines = filePlay(fp);
-        printf("the number of lines is: %d",numLines);
+        printf("the number of lines is: %d\n",numLines);
     }
     return 0;
 }
